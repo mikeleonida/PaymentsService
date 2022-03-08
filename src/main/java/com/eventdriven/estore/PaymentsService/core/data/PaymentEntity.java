@@ -1,5 +1,7 @@
 package com.eventdriven.estore.PaymentsService.core.data;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,10 +9,15 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "payments")
-@Data
-public class PaymentEntity {
+public class PaymentEntity implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2931350267355516459L;
+	
 	@Id
 	private String paymentId;
 	@Column

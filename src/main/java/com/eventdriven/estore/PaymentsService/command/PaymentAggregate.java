@@ -37,6 +37,10 @@ public class PaymentAggregate {
 			throw new IllegalArgumentException("Payment id cannot be empty");
 		}
 		
+		if(processPaymentCommand.getPaymentDetails() == null) {
+    		throw new IllegalArgumentException("Missing payment details");
+    	}
+		
 		PaymentProcessedEvent paymentProcessedEvent = new PaymentProcessedEvent(
 				processPaymentCommand.getOrderId(),
 				processPaymentCommand.getPaymentId());
